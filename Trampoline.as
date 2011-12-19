@@ -23,9 +23,9 @@ package
 			if(this.x != player.x)
 			{
 				var diff:int = playerXCoordinate - this.x;
-				if(Math.abs(diff) < 1)
+				if(Math.abs(diff) < 4)
 				{
-					this.x += player.x;
+					this.x == player.x;
 				}
 				else
 				{
