@@ -6,7 +6,7 @@ package
 	
 	public class Player extends MovieClip
 	{
-		private const GRAVITY_acc:Number = 5;
+		private const GRAVITY_acc:Number = 1;
 		private const JET_acc:Number = 10;
 		private const SIDE_acc = 2;
 		private const MAXY_vel:Number = 10;
@@ -66,7 +66,7 @@ package
 				if (velY > 0) {
 					accY -= TRAMPOLINE_AMORT_acc;
 				} else {
-					velY = TRAMPOLINE_BOUNCE_vel;
+					velY = -TRAMPOLINE_BOUNCE_vel;
 				}
 			}
 			
