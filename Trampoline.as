@@ -23,7 +23,7 @@ package
 			if(this.x != player.x)
 			{
 				var diff:int = playerXCoordinate - this.x;
-				if(Math.abs(diff) < 4)
+				if(Math.abs(diff) < 1)
 				{
 					this.x += player.x;
 				}
