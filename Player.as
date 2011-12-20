@@ -1,4 +1,4 @@
-package
+﻿package
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -23,6 +23,8 @@ package
 		public var goRight:Boolean = false;
 		
 		public var trampolineY:Number;
+		
+		public var weapon:Weapon;
 		
 		public function Player()
 		{
@@ -50,10 +52,6 @@ package
 		
 		private function move()
 		{
-			trace("x: " + this.x);
-			trace("y: " + this.y);
-			trace("velX: " + velX);
-			trace("velY: " + velY);
 			// Move the player with velocity
 			this.x += velX;
 			this.y += velY;
@@ -67,7 +65,6 @@ package
 				accY = GRAVITY_acc;
 				if (jetActive) accY -= JET_acc;
 				
-				trace("Trampoline up");
 				
 			} else {
 				// Here the player slows down until he stops and
@@ -77,12 +74,9 @@ package
 				
 				if (velY > 0) {
 					accY -= TRAMPOLINE_AMORT_acc;
-					
-					trace("Player slowing");
 				} else {
 					velY = -TRAMPOLINE_BOUNCE_vel;
 					
-					trace("Player const speed");
 				}
 			}
 			
@@ -99,9 +93,17 @@ package
 			velY += accY;
 		}
 		
-		public function sgn(b:Number):Number
+		//koordinate u odnosu na MovieClip player a ne u odnosu na stage
+		public function setWeapon(newWeapon:Weapon, deltaX:int, deltaY:int):void
 		{
-			return b / Math.abs(b); 
+			weapon = newWeapon;
+			
+			weapon.x = deltaX;
+			weapon.y = deltaY;
+			trace("X: " + x + "weaponx: " + weapon.x);
+			//this.addChild(weapon);
+			addChild(weapon);
+			
 		}
 	}
 }
