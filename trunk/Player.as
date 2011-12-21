@@ -25,6 +25,7 @@
 		public var trampolineY:Number;
 		
 		public var weapon:Weapon;
+		public var armor:Armor;
 		var myParent:MovieClip;
 		
 		public var playerFrame:uint = 1;
@@ -132,6 +133,14 @@
 			
 		}
 		
+		public function setArmor(newArmor:Armor, deltaX:int, deltaY:int):void
+		{
+			armor = newArmor;
+			armor.x = deltaX;
+			armor.y = deltaY;
+			addChild(armor);
+		}
+		
 		private function hitDetection():void
 		{
 			
@@ -186,5 +195,6 @@
 			
 			return -1;
 		}
+		
 	}
 }

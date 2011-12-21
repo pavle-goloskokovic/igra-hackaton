@@ -1,4 +1,4 @@
-package
+﻿package
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -8,6 +8,8 @@ package
 		private const armorIncrement = 20;
 		private const maxArmorLevel = 5;
 		public var hitPoints:Number;
+		
+		public var frameArmor:int = 2;
 		
 		public function Armor(initialHitPoints:Number)
 		{
@@ -39,6 +41,12 @@ package
 			{
 				GameState(this.parent.parent).itemManager.createArmor = false;
 			}
+		}
+		
+		public function setFrame(frame:int):void
+		{
+			frameArmor = frame;
+			gotoAndStop(frame);
 		}
 	}
 }
