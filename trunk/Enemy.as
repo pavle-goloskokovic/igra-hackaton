@@ -42,6 +42,16 @@
 		
 		private function killed():void
 		{
+			var currentScore:int = parseInt(MovieClip(this.parent.parent).score_txt.text);
+			if(enemyFrame == 1)
+			{
+				currentScore += 10;
+			}
+			else if(enemyFrame == 2)
+			{
+				currentScore += 20;
+			}
+			MovieClip(this.parent.parent).score_txt.text = String(currentScore);
 			var removed:Boolean = myParent.enemyManager.removeEnemy(this);
 			//this.parent.removeChild(this.parent.getChildByName(this.name));
 		}

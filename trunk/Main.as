@@ -11,6 +11,8 @@ package
 	public class Main extends MovieClip
 	{
 
+		public var score_txt:TextField = new TextField();
+		
 		public function Main()
 		{
 			// constructor code
@@ -18,7 +20,7 @@ package
 			addChild(new SkyBackground());
 			addChild(game);
 
-			var score_txt:TextField = new TextField();
+			
 			score_txt.type = TextFieldType.DYNAMIC;
 			score_txt.border = true;
 			score_txt.x = 10;
@@ -30,7 +32,7 @@ package
 			score_txt.wordWrap = true;
 			addChild(score_txt);
 			
-			score_txt.text = "0909";
+			score_txt.text = "0";
 		}
 
 	}

@@ -35,15 +35,18 @@
 		
 		public function fire():void
 		{
+			var bullet:Bullet;
+			
 			if(weaponFrame == 1)
 			{
-				var bullet:Bullet = new Bullet(this.x + parent.x, this.y + parent.y, 6, 20);
+				bullet = new Bullet(this.x + parent.x, this.y + parent.y, 6, 20);
+				bullet.setFrame(1);
 				parent.parent.addChild(bullet);
 				bullet.fireBullet();
 			}
-			else if
+			else if(weaponFrame == 2)
 			{
-				var bullet:Bullet = new Bullet(this.x + parent.x, this.y + parent.y, 10, 20);
+				bullet = new Bullet(this.x + parent.x, this.y + parent.y, 10, 20);
 				bullet.setFrame(2);
 				parent.parent.addChild(bullet);
 				bullet.fireBullet();

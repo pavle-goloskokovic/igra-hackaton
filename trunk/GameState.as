@@ -1,7 +1,7 @@
 ﻿package 
 {
 
-	import MenuState.*;
+	import MenuState;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -16,7 +16,7 @@
 		var weapon:Weapon = new Weapon(player);
 		public var enemyManager:EnemyManager = new EnemyManager();
 	
-		public var itemManager:ItemManager = new ItemManager(this);
+		public var itemManager:ItemManager; 
 	
 		
 		
@@ -48,7 +48,7 @@
 
 			//addChild(buttonBack);
 			//buttonBack.addEventListener(MouseEvent.CLICK, backToMenu);
-
+			itemManager = new ItemManager(this);
 
 			player.x = 50;
 			player.y = 50;
