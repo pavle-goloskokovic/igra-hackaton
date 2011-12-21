@@ -33,6 +33,7 @@
 		
 		public function shot(bullet:Bullet):void
 		{
+			trace("bullet demage " + bullet.demage + " my energy " + energy);
 			energy -= bullet.demage;
 			if(energy <= 0)
 			{

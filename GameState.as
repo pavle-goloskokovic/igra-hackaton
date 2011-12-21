@@ -51,14 +51,13 @@
 			//buttonBack.addEventListener(MouseEvent.CLICK, backToMenu);
 			itemManager = new ItemManager(this);
 			
-			armor = new Armor(0);
-			armor.setFrame(2);
+			armor = new Armor(10);
 			player.x = 50;
 			player.y = 50;
 			trampoline.x = 50;
 			trampoline.y = 370;
 			player.trampolineY = 370;
-			weapon.setFrame(2);
+			weapon.setFrame(1);
 			player.setWeapon(weapon, 0, -55);
 			player.setArmor(armor, 0, 0);
 			addChild(trampoline);

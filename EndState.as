@@ -14,7 +14,7 @@
 
 		public function EndState(score:Number) {
 			this.score = score;
-			score_txt.text = score;
+			score_txt.text = String(score);
 			this.addEventListener(Event.ADDED, initialise);
 		}
 		
