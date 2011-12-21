@@ -7,11 +7,11 @@
 	public class Player extends MovieClip
 	{
 		private const GRAVITY_acc:Number = 1;
-		private const JET_acc:Number = 3;
+		private const JET_acc:Number = 1.4;
 		private const SIDE_acc:Number = 2;
 		private const MAXY_vel:Number = 15;
-		private const TRAMPOLINE_BOUNCE_vel:Number = 20;
-		private const TRAMPOLINE_AMORT_acc:Number = 5;
+		private const TRAMPOLINE_BOUNCE_vel:Number = 23;
+		private const TRAMPOLINE_AMORT_acc:Number = 8;
 		
 		private var velX:Number;
 		private var velY:Number;
@@ -57,9 +57,29 @@
 		private function move()
 		{
 			// Move the player with velocity
-			this.x += velX;
-			this.y += velY;
-			
+			if (this.width / 2 > this.x + velX)
+			{
+				this.x = this.width / 2;
+				velX = 0;
+			}
+			else if (this.x + velX > parent.parent.stage.stageWidth - this.width / 2)
+			{
+				
+				this.x = parent.parent.stage.stageWidth - this.width / 2;
+				velX = 0;
+			} 
+			else 
+			{
+				this.x += velX;
+			}
+
+			if (this.y + velY > this.height)
+			{
+				this.y += velY;
+			} else {
+				this.y = this.height;
+				velY = 0;
+			}
 			
 			// Calculate acceleration
 			if (this.y < trampolineY) {
