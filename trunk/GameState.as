@@ -5,6 +5,7 @@
 	import flash.events.*;
 	import MenuState;
 	import flash.ui.Keyboard;
+	import com.demonsters.debugger.MonsterDebugger;
 
 	public class GameState extends MovieClip
 	{
@@ -21,6 +22,8 @@
 		
 		public function GameState(multiPlayerMode:Boolean)
 		{
+			MonsterDebugger.initialize(this);
+            MonsterDebugger.trace(this, "Roditelj GameState je " + parent);
 			// constructor code
 			mode = multiPlayerMode;
 			this.addEventListener(Event.ADDED, initialise);
