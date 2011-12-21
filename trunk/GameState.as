@@ -1,14 +1,14 @@
 ﻿package 
 {
 
+	import MenuState.*;
+	
 	import flash.display.*;
 	import flash.events.*;
-	import MenuState;
 	import flash.ui.Keyboard;
 
 	public class GameState extends MovieClip
-	{
-		
+	{	
 		var buttonBack:Button;
 		var mode:Boolean;
 		public var player:Player = new Player();
@@ -16,6 +16,7 @@
 		var weapon:Weapon = new Weapon(player);
 		public var enemyManager:EnemyManager = new EnemyManager();
 	
+		public var itemManager:ItemManager = new ItemManager(this);
 	
 		
 		

@@ -6,6 +6,7 @@ package
 	public class Armor extends MovieClip
 	{
 		private const armorIncrement = 20;
+		private const maxArmorLevel = 5;
 		public var hitPoints:Number;
 		
 		public function Armor(initialHitPoints:Number)
@@ -18,7 +19,11 @@ package
 		public function hit(energy:Number) : Boolean
 		{
 			this.hitPoints -= energy;
-			this.gotoAndStop(this.hitPoints % this.armorIncrement);
+			
+			var targetFrame:int = Math.max(this.hitPoints % this.armorIncrement, 0);
+			this.gotoAndStop(targetFrame);
+			
+			GameState(this.parent.parent).itemManager.createArmor = true;
 			
 			return this.hitPoints > 0;
 		}
@@ -27,7 +32,13 @@ package
 		{
 			this.hitPoints += armorIncrement;
 			
-			this.gotoAndStop(this.hitPoints % this.armorIncrement);
+			var targetFrame:int = Math.min(this.hitPoints % this.armorIncrement, maxArmorLevel);
+			this.gotoAndStop(targetFrame);
+			
+			if (this.hitPoints >= armorIncrement * maxArmorLevel)
+			{
+				GameState(this.parent.parent).itemManager.createArmor = false;
+			}
 		}
 	}
 }
