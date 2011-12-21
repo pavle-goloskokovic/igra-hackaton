@@ -14,7 +14,13 @@ package
 		public var averageDelay:Number = 10;
 		public var averageDeviation:Number = 7;
 		
-		public function ItemManager(targetParent:MovieClip) : void
+		public var createArmor:Boolean = true;
+		public var createWeapons:Boolean = true;
+		public var createJetPack:Boolean = true;
+		public var createCatArmor:Boolean = true;
+		public var createBonusItems:Boolean = true;
+		
+		public function ItemManager(targetParent:MovieClip)
 		{
 			timer = new Timer(averageDelay);
 			timer.addEventListener(TimerEvent.TIMER, timerEvent);
