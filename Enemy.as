@@ -8,6 +8,7 @@
 		private var energy:int;
 		private var speed:int;
 		private var myParent:MovieClip;
+		public var enemyFrame:uint = 1;
 		public function Enemy(energyOfEnemy:int = 10, speedOfEnemy:int = 5)
 		{
 			super();

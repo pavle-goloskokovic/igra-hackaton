@@ -27,6 +27,8 @@
 		public var weapon:Weapon;
 		var myParent:MovieClip;
 		
+		public var playerFrame:uint = 1;
+		
 		public function Player()
 		{
 			super();
@@ -136,6 +138,12 @@
 					}
 				}
 			}
+		}
+		
+		public function setFrame(frame:uint):void
+		{
+			playerFrame = frame;
+			gotoAndStop(frame);
 		}
 	}
 }
