@@ -52,8 +52,8 @@
 					{
 						var enem:Enemy = myParent.enemyManager.enemies[i];
 						enem.shot(this);
-						var removed:Boolean = myParent.enemyManager.removeEnemy(enem);
-						trace(removed);
+						//var removed:Boolean = myParent.enemyManager.removeEnemy(enem);
+						//trace(removed);
 						disconnectFrameEnterListener();
 						this.parent.removeChild(this.parent.getChildByName(this.name));
 						trace("SSS");
