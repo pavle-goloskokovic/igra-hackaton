@@ -18,9 +18,14 @@
 			this.y = startY;
 			//parent.addChild(this);
 			
+			
+			
+		}
+		
+		public function fireBullet():void
+		{
 			this.addEventListener(Event.ENTER_FRAME, moveBullet);
 			trace("Bullet created");
-			
 		}
 		
 		public function moveBullet(event:Event):void

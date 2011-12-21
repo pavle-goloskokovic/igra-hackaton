@@ -33,10 +33,9 @@
 		
 		public function fire():void
 		{
-			trace("fire x: " + this.x + " y: " + y);
-			var bullet:Bullet = new Bullet(this.x, this.y, 10, 3);
-			trace(parent.parent.parent.toString());
+			var bullet:Bullet = new Bullet(this.x + parent.x, this.y + parent.y, 10, 3);
 			parent.parent.addChild(bullet);
+			bullet.fireBullet();
 		}
 	}
 }
