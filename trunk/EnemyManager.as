@@ -54,14 +54,14 @@
 			if(enemyNumber >= 0 && enemyNumber <= 40)
 			{
 				returnEnemy = new Enemy(10, 5);
-				//returnEnemy.enemyFrame = 1;
-				//returnEnemy.gotoAndStop(1);
+				returnEnemy.enemyFrame = 1;
+				returnEnemy.gotoAndStop(1);
 			}
 			else if(enemyNumber > 40 && enemyNumber <= 70)
 			{
 				returnEnemy = new Enemy(15, 8);
-				//returnEnemy.enemyFrame = 2;
-				//returnEnemy.gotoAndStop(2);
+				returnEnemy.enemyFrame = 2;
+				returnEnemy.gotoAndStop(2);
 			}
 			else if (enemyNumber > 70 && enemyNumber <= 90)
 			{

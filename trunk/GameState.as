@@ -54,6 +54,7 @@
 			trampoline.x = 50;
 			trampoline.y = 370;
 			player.trampolineY = 370;
+			weapon.setFrame(2);
 			player.setWeapon(weapon, 0, -55);
 			addChild(trampoline);
 			addChild(player);
