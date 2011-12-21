@@ -3,14 +3,15 @@
 package  {
 	
 	import flash.display.*;
-	import IntroState;
+	//import IntroState;
+	import GameState;
 	
 	public class Main extends MovieClip {
 
 		public function Main() {
 			// constructor code
-			var intro:IntroState = new IntroState();
-			addChild(intro);
+			var game:GameState = new GameState(true);
+			addChild(game);
 			
 		}
 
