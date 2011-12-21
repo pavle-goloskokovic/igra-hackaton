@@ -27,8 +27,8 @@
 			// constructor code
 			mode = multiPlayerMode;
 			this.addEventListener(Event.ADDED, initialise);
-			addEventListener(KeyboardEvent.KEY_DOWN, pressed);
-			//stage.addEventListener(KeyboardEvent.KEY_UP, released);
+			
+			
 			
 		}
 
@@ -36,6 +36,8 @@
 		{
 
 			this.removeEventListener(Event.ADDED, initialise);
+			this.parent.stage.addEventListener(KeyboardEvent.KEY_DOWN, pressed);
+			this.parent.stage.addEventListener(KeyboardEvent.KEY_UP, released);
 
 			//msg_txt.text = "GameState\nMode: " + (mode?"Multiplayer":"Singleplayer");
 
@@ -68,8 +70,9 @@
 
 		function pressed(e:KeyboardEvent):void
 		{
-			trace("PRESSED");
+			
 			var code:uint = e.keyCode;
+			trace("pressed ", code);
 			if (code == Keyboard.RIGHT)
 			{
 				player.goRight = true;
