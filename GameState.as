@@ -15,6 +15,7 @@
 		var trampoline:Trampoline = new Trampoline(player,4);
 		var weapon:Weapon = new Weapon(player);
 		public var enemyManager:EnemyManager = new EnemyManager();
+		var armor:Armor;
 	
 		public var itemManager:ItemManager; 
 	
@@ -49,7 +50,9 @@
 			//addChild(buttonBack);
 			//buttonBack.addEventListener(MouseEvent.CLICK, backToMenu);
 			itemManager = new ItemManager(this);
-
+			
+			armor = new Armor(0);
+			armor.setFrame(2);
 			player.x = 50;
 			player.y = 50;
 			trampoline.x = 50;
@@ -57,6 +60,7 @@
 			player.trampolineY = 370;
 			weapon.setFrame(2);
 			player.setWeapon(weapon, 0, -55);
+			player.setArmor(armor, 0, 0);
 			addChild(trampoline);
 			addChild(player);
 			addChild(enemyManager);
