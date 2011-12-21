@@ -25,6 +25,7 @@
 		public var trampolineY:Number;
 		
 		public var weapon:Weapon;
+		var myParent:MovieClip;
 		
 		public function Player()
 		{
@@ -43,6 +44,7 @@
 		{
 			
 			this.addEventListener(Event.ENTER_FRAME, enterFrameListener);
+			myParent = MovieClip(this.parent);
 		}
 		
 		private function enterFrameListener(event:Event)
@@ -91,6 +93,8 @@
 			// Adjust velocity
 			velX += accX;
 			velY += accY;
+			
+			hitDetection();
 		}
 		
 		//koordinate u odnosu na MovieClip player a ne u odnosu na stage
@@ -104,6 +108,34 @@
 			//this.addChild(weapon);
 			addChild(weapon);
 			
+		}
+		
+		private function hitDetection():void
+		{
+			
+			var enemyManager:EnemyManager = myParent.enemyManager;
+			for(var i:uint; i < enemyManager.enemies.length; i++)
+			{
+				var enemy:Enemy = enemyManager.enemies[i];
+				if(this.hitTestObject(enemy))
+				{
+					var paddLeft:Number = 30;
+					var paddRight:Number = 3;
+					
+					if(enemy.x - this.x > -paddRight && enemy.x - this.x < paddLeft){
+						trace("killed");
+						this.x = 0;
+					}else{
+						if(this.y - this.height / 3 < enemy.y){
+							trace("remove enemy");
+							var removed:Boolean = myParent.enemyManager.removeEnemy(enemy);
+						}else{
+							trace("killed");
+							this.x = 0;
+						}
+					}
+				}
+			}
 		}
 	}
 }

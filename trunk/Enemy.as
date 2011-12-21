@@ -7,6 +7,7 @@
 	{
 		private var energy:int;
 		private var speed:int;
+		private var myParent:MovieClip;
 		public function Enemy(energyOfEnemy:int = 10, speedOfEnemy:int = 5)
 		{
 			super();
@@ -20,6 +21,7 @@
 		{
 			
 			this.addEventListener(Event.ENTER_FRAME, move);
+			myParent = MovieClip(this.parent);
 		}
 		
 		public function move(event:Event):void
@@ -39,6 +41,7 @@
 		
 		private function killed():void
 		{
+			var removed:Boolean = myParent.enemyManager.removeEnemy(this);
 			//this.parent.removeChild(this.parent.getChildByName(this.name));
 		}
 	}
