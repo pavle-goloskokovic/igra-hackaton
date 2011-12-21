@@ -5,7 +5,6 @@
 	import flash.events.*;
 	import MenuState;
 	import flash.ui.Keyboard;
-	import com.demonsters.debugger.MonsterDebugger;
 
 	public class GameState extends MovieClip
 	{
@@ -15,15 +14,15 @@
 		public var player:Player = new Player();
 		var trampoline:Trampoline = new Trampoline(player,4);
 		var weapon:Weapon = new Weapon(player);
-		var enemyManager:EnemyManager = new EnemyManager();
+		public var enemyManager:EnemyManager = new EnemyManager();
 	
 	
 		
 		
 		public function GameState(multiPlayerMode:Boolean)
 		{
-			MonsterDebugger.initialize(this);
-            MonsterDebugger.trace(this, "Roditelj GameState je " + parent);
+			//MonsterDebugger.initialize(this);
+            //MonsterDebugger.trace(this, "Roditelj GameState je " + parent);
 			// constructor code
 			mode = multiPlayerMode;
 			this.addEventListener(Event.ADDED, initialise);
@@ -55,11 +54,11 @@
 			trampoline.x = 50;
 			trampoline.y = 370;
 			player.trampolineY = 370;
-			player.setWeapon(weapon, 0, -16);
+			player.setWeapon(weapon, 0, -55);
 			addChild(trampoline);
 			addChild(player);
 			addChild(enemyManager);
-			enemyManager.createEnemies();
+			//enemyManager.createEnemies();
 			
 			player.weapon.fire();
 			//this.addEventListener(KeyboardEvent.KEY_DOWN, pressed);
