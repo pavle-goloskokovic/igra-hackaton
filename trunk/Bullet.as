@@ -19,6 +19,7 @@
 			this.x = startX;
 			this.y = startY;
 			this.addEventListener(Event.ADDED, init);
+			trace("Bulet constructed: " + demage);
 			
 			
 			
@@ -58,7 +59,6 @@
 						//trace(removed);
 						disconnectFrameEnterListener();
 						this.parent.removeChild(this.parent.getChildByName(this.name));
-						trace("SSS");
 						break;
 					}
 				}
@@ -75,11 +75,11 @@
 			bulletFrame = frame;
 			if(frame == 1)
 			{
-				demage = 5;
+				demage = 10;
 			}
 			if(frame == 2) 
 			{
-				demage = 10;
+				demage = 20;
 			}
 			this.gotoAndStop(frame);
 		}

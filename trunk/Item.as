@@ -6,7 +6,6 @@
 	public class Item extends MovieClip
 	{
 		public var type:String;
-		public var itemFrame:int = 1;
 		public var speed:int = 3;
 		
 		public function Item(type:String)
@@ -14,17 +13,12 @@
 			super();
 			this.addEventListener(Event.ADDED, init);
 			this.type = type;
+			gotoAndStop(type);
 		}
 		
 		public function init(e:Event):void
 		{
 			this.addEventListener(Event.ENTER_FRAME, move);
-		}
-		
-		public function setFrame(frame:int):void
-		{
-			itemFrame = frame;
-			gotoAndStop(frame);
 		}
 		
 		public function move(e:Event):void
@@ -36,16 +30,14 @@
 			if(this.hitTestObject(player))
 			{
 				//dodaj sad nesto playeru
-				if(itemFrame == 0)
+				if(type == "Armor")
 				{
-					var armState:int = player.armor.frameArmor;
-					armState++;
-					player.armor.setFrame(armState);
-					
-					if(armState == 5)
-					{
-						
-					}
+					player.armor.upgrade();
+				}
+				else if(type == "Weapon")
+				{
+					var currentWeapon = player.weapon.weaponFrame;
+					player.weapon.setFrame(2);
 				}
 				gameState.removeChild(this);
 				disconnectListener();

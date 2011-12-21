@@ -10,7 +10,7 @@
 		public var deltaX:Number = 0;
 		public var deltaY:Number = 0;
 		
-		public var weaponFrame = 1;
+		public var weaponFrame:int = 1;
 		
 		public function Weapon(myPlayer:Player)
 		{
@@ -39,18 +39,19 @@
 			
 			if(weaponFrame == 1)
 			{
-				bullet = new Bullet(this.x + parent.x, this.y + parent.y, 6, 20);
+				bullet = new Bullet(this.x + parent.x, this.y + parent.y, 11, 20);
 				bullet.setFrame(1);
 				parent.parent.addChild(bullet);
 				bullet.fireBullet();
 			}
 			else if(weaponFrame == 2)
 			{
-				bullet = new Bullet(this.x + parent.x, this.y + parent.y, 10, 20);
+				bullet = new Bullet(this.x + parent.x, this.y + parent.y, 21, 20);
 				bullet.setFrame(2);
 				parent.parent.addChild(bullet);
 				bullet.fireBullet();
 			}
+			
 		}
 		
 		public function setFrame(frame:uint):void

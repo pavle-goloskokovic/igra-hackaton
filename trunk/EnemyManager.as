@@ -15,7 +15,7 @@
 		private var thisStageWith:int; 
 		private var thisStageHeight:int; 
 		
-		private var enemiesTimer:Timer = new Timer(1000, 0);
+		private var enemiesTimer:Timer = new Timer(1500, 0);
 		private var levelTimer:Timer = new Timer(1000 * 10, 0);
 		private var enemyBorder:uint = 40;
 		
