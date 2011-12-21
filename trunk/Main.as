@@ -11,6 +11,7 @@ package  {
 		public function Main() {
 			// constructor code
 			var game:GameState = new GameState(true);
+			addChild(new SkyBackground());
 			addChild(game);
 			
 		}
