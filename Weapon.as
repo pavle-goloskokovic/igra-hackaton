@@ -33,7 +33,7 @@
 		
 		public function fire():void
 		{
-			var bullet:Bullet = new Bullet(this.x + parent.x, this.y + parent.y, 10, 3);
+			var bullet:Bullet = new Bullet(this.x + parent.x, this.y + parent.y, 10, 20);
 			parent.parent.addChild(bullet);
 			bullet.fireBullet();
 		}

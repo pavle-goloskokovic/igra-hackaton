@@ -1,4 +1,4 @@
-package
+﻿package
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -12,6 +12,13 @@ package
 			super();
 			energy = energyOfEnemy;
 			speed = speedOfEnemy;
+			addEventListener(Event.ADDED, init);
+			
+		}
+		
+		public function init(e:Event):void
+		{
+			
 			this.addEventListener(Event.ENTER_FRAME, move);
 		}
 		
@@ -32,7 +39,7 @@ package
 		
 		private function killed():void
 		{
-			this.parent.removeChild(this.parent.getChildByName(this.name));
+			//this.parent.removeChild(this.parent.getChildByName(this.name));
 		}
 	}
 }
