@@ -9,6 +9,8 @@
 		public var demage:uint;
 		public var step:uint;
 		
+		public var bulletFrame:uint;
+		
 		public function Bullet(startX:Number, startY:Number,  demageToEnemy:uint, stepForward:uint)
 		{
 			super();
@@ -66,6 +68,12 @@
 		public function disconnectFrameEnterListener():void
 		{
 			this.removeEventListener(Event.ENTER_FRAME, moveBullet);
+		}
+		
+		public function setFrame(frame:uint):void
+		{
+			bulletFrame = frame;
+			this.gotoAndStop(frame);
 		}
 	}
 }

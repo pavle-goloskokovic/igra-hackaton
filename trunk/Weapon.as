@@ -10,6 +10,8 @@
 		public var deltaX:Number = 0;
 		public var deltaY:Number = 0;
 		
+		public var weaponFrame = 1;
+		
 		public function Weapon(myPlayer:Player)
 		{
 			super();
@@ -36,6 +38,12 @@
 			var bullet:Bullet = new Bullet(this.x + parent.x, this.y + parent.y, 6, 20);
 			parent.parent.addChild(bullet);
 			bullet.fireBullet();
+		}
+		
+		public function setFrame(frame:uint):void
+		{
+			weaponFrame = frame;
+			this.gotoAndStop(frame);
 		}
 	}
 }
