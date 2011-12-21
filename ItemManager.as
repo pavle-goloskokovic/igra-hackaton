@@ -1,4 +1,4 @@
-package
+﻿package
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;
@@ -30,7 +30,7 @@ package
 		
 		private function generateItem() : Item
 		{
-			
+			return null;
 		}
 		
 		private function timerEvent(event:Event) : void
@@ -38,11 +38,11 @@ package
 			var nextDelay:Number = (Math.random() * averageDeviation * 2 - averageDeviation) + averageDelay;
 			timer.delay = nextDelay * 1000;
 			
-			item = generateItem();
+			var item:Item = generateItem();
 			MovieClip(item).x = targetParent.width + MovieClip(item).width;
 			MovieClip(item).y = Math.random() * targetParent.height * 0.8 + targetParent.height * 0.1;
 			
-			targetParent.addChild(Item);
+			targetParent.addChild(item);
 		}
 		
 		public function start() : void

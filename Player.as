@@ -123,17 +123,24 @@
 				{
 					var paddLeft:Number = 30;
 					var paddRight:Number = 3;
+					var main:MovieClip = MovieClip(myParent.parent);
+					var currentScore:int = parseInt(main.score_txt.text);
 					
 					if(enemy.x - this.x > -paddRight && enemy.x - this.x < paddLeft){
-						trace("killed");
+						//trace("killed");
 						this.x = 0;
+						main.score_txt.text = "0";
 					}else{
 						if(this.y - this.height / 3 < enemy.y){
-							trace("remove enemy");
+							//trace("remove enemy");
+							var retInc:int = getScoreIncrement(enemy);
+							currentScore += retInc;
+							main.score_txt.text = currentScore;
 							var removed:Boolean = myParent.enemyManager.removeEnemy(enemy);
 						}else{
-							trace("killed");
+							//trace("killed");
 							this.x = 0;
+							main.score_txt.text = "0";
 						}
 					}
 				}
@@ -144,6 +151,20 @@
 		{
 			playerFrame = frame;
 			gotoAndStop(frame);
+		}
+		
+		private function getScoreIncrement(enemy:Enemy):int
+		{
+			if(enemy.enemyFrame == 1)
+			{
+				return 10;
+			}
+			else if(enemy.enemyFrame == 2)
+			{
+				return 20;
+			}
+			
+			return -1;
 		}
 	}
 }

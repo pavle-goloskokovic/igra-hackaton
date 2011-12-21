@@ -73,6 +73,14 @@
 		public function setFrame(frame:uint):void
 		{
 			bulletFrame = frame;
+			if(frame == 1)
+			{
+				demage = 5;
+			}
+			if(frame == 2) 
+			{
+				demage = 10;
+			}
 			this.gotoAndStop(frame);
 		}
 	}
