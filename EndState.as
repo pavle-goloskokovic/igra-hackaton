@@ -13,8 +13,10 @@
 		var score:Number;
 
 		public function EndState(score:Number) {
+			
 			this.score = score;
 			score_txt.text = String(score);
+			username_txt.text = "";
 			this.addEventListener(Event.ADDED, initialise);
 		}
 		
@@ -26,11 +28,12 @@
 			
 			buttonSubmit = new Button("Sacuvaj skor");
 			buttonSubmit.x = this.parent.stage.stageWidth / 3 * 2;
-			buttonSubmit.y = this.parent.stage.stageHeight/3*2;
+			buttonSubmit.y = this.parent.stage.stageHeight/4*3;
 			buttonSubmit.buttonMode = true;
+			
 			buttonBack = new Button("Nazad");
 			buttonBack.x = this.parent.stage.stageWidth / 3;
-			buttonBack.y = this.parent.stage.stageHeight/3*2;
+			buttonBack.y = this.parent.stage.stageHeight/4*3;
 			buttonBack.buttonMode = true;
 			
 			addChild(buttonSubmit);
@@ -52,11 +55,18 @@
 		
 		function submit(evt:MouseEvent):void{
 			
-			buttonSubmit.removeEventListener(MouseEvent.CLICK, submit);
+			if(username_txt.text == "" || username_txt.text == "Morate uneti ime!"){
 			
-			trace("Username: \n" + username_txt.text + "Score: " + score);
+				username_txt.text = "Morate uneti ime!"
+				
+			}else{
 			
-			removeChild(buttonSubmit);
+				buttonSubmit.removeEventListener(MouseEvent.CLICK, submit);
+				
+				trace("Username: " + username_txt.text + "\nScore: " + score);
+				
+				removeChild(buttonSubmit);
+			}
 			
 		}
 
