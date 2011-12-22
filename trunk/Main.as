@@ -3,10 +3,13 @@
 package 
 {
 
-	import flash.display.*;
-	import flash.text.*;
-	//import IntroState;
 	import GameState;
+	
+	import IntroState;
+	
+	import flash.display.*;
+	import flash.geom.ColorTransform;
+	import flash.text.*;
 
 	public class Main extends MovieClip
 	{
@@ -17,16 +20,18 @@ package
 		{
 			// constructor code
 			var game:GameState = new GameState(true);
-			addChild(new SkyBackground());
+			//addChild(new SkyBackground());
 			addChild(game);
 
+			var textStyle:TextFormat = new TextFormat("Berlin Sans FB", 36, "0x001F48");
 			
 			score_txt.type = TextFieldType.DYNAMIC;
-			score_txt.border = true;
+			score_txt.border = false;
 			score_txt.x = 10;
-			score_txt.y = 10;
-			score_txt.height = 30;
+			score_txt.y = 5;
+			score_txt.height = 42;
 			score_txt.width = 150;
+			score_txt.defaultTextFormat = textStyle;
 			score_txt.selectable = false;
 			score_txt.multiline = true;
 			score_txt.wordWrap = true;

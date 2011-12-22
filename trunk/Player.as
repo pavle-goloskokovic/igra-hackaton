@@ -63,17 +63,17 @@
 				this.x = this.width / 2;
 				velX = 0;
 			}
-			else if (this.x + velX > parent.parent.stage.stageWidth - this.width / 2)
+			else if (this.x + velX > stage.stageWidth - this.width / 2)
 			{
 				
-				this.x = parent.parent.stage.stageWidth - this.width / 2;
+				this.x = stage.stageWidth - this.width / 2;
 				velX = 0;
 			} 
 			else 
 			{
 				this.x += velX;
 			}
-
+			
 			if (this.y + velY > this.height)
 			{
 				this.y += velY;

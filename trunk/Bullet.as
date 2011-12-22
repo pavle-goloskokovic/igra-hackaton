@@ -19,8 +19,6 @@
 			this.x = startX;
 			this.y = startY;
 			this.addEventListener(Event.ADDED, init);
-			trace("Bulet constructed: " + demage);
-			
 			
 			
 		}
@@ -38,7 +36,7 @@
 		public function moveBullet(event:Event):void
 		{
 			this.x += step;
-			if(this.x > parent.parent.stage.stageWidth )
+			if(this.x > stage.stageWidth )
 			//if(this.x > 500)
 			{
 				this.visible = false;

@@ -2,9 +2,9 @@
 {
 	import flash.display.MovieClip;
 	import flash.display.Stage;
+	import flash.events.Event;
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
-	import flash.events.Event;
 
 	public class EnemyManager extends MovieClip
 	{
@@ -97,6 +97,7 @@
 				if(enemies[i] == enemy)
 				{
 					enemies.splice(i, 1);
+					enemy.removeEventListener(Event.ENTER_FRAME, enemy.move);
 					parent.removeChild(enemy);
 					return true;
 				}

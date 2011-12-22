@@ -9,11 +9,15 @@
 		private var speed:int;
 		private var myParent:MovieClip;
 		public var enemyFrame:uint = 1;
+
+		private var isAlive:Boolean;
+
 		public function Enemy(energyOfEnemy:int = 10, speedOfEnemy:int = 5)
 		{
 			super();
 			energy = energyOfEnemy;
 			speed = speedOfEnemy;
+			isAlive = true;
 			addEventListener(Event.ADDED, init);
 			
 		}
@@ -28,7 +32,9 @@
 		public function move(event:Event):void
 		{
 				this.x -= speed;
-				
+				if (this.x < 0 - this.width || this.y > stage.stageHeight) {
+					myParent.enemyManager.removeEnemy(this);
+				}
 		}
 		
 		public function shot(bullet:Bullet):void
@@ -53,6 +59,9 @@
 				currentScore += 20;
 			}
 			MovieClip(this.parent.parent).score_txt.text = String(currentScore);
+			trace(this.parent);
+			trace(this.parent.parent);
+			isAlive = false;
 			var removed:Boolean = myParent.enemyManager.removeEnemy(this);
 			//this.parent.removeChild(this.parent.getChildByName(this.name));
 		}
